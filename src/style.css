@@ -1,0 +1,91 @@
+/* Full viewport height layout with flex column */
+
+#page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* #canvas {
+  border: 2px solid red;
+}
+
+#canvas-container {
+  overflow: scroll;
+  /* Going to have to figure out a better way to set max-width
+  max-width: 80ch;
+  max-height: 50ch;
+} */
+
+.load-file-header {
+  flex-shrink: 0;
+  padding: 1rem 1rem 0.5rem 1rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#text-grid {
+  font-family: 'Courier';
+  font-size: 16px;
+  outline: 1px solid red;
+  flex: 1;
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+  width: 100%;
+}
+
+/* makes scrollbar not disappear on chrome on macos */
+#text-grid::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+
+/* Style the draggable thumb */
+#text-grid::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+/* make sure all divs in the text take up a line height, even
+  if the div has no characters in it -- a blank row. */
+#text-grid>div {
+  height: 16px;
+}
+
+.cursor-loc {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    width: 0;
+    height: 14px;
+    border: 1px black solid;
+    content: '';
+    animation: flashCursor 1s step-start infinite;
+  }
+}
+
+@keyframes flashCursor {
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+
+}
+
+.selected {
+  background-color: lightblue;
+}
+
+/* Debug info pinned at bottom, doesn't scroll */
+#debug-info {
+  border-top: 1px solid #ddd;
+  padding: 0.5rem;
+  background: #fff;
+  flex-shrink: 0;
+}
